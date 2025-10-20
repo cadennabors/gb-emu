@@ -10,6 +10,7 @@ struct Registers {
 }
 
 impl Registers {
+    //todo : add 16 bit get/set functions rather than one for each combination
     fn get_af(&self) -> u16 {
         ((self.a as u16) << 8) | (self.f as u16)
     }
