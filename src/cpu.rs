@@ -10,8 +10,8 @@ struct Registers {
 }
 
 impl Registers {
-    fn get_16_bit_register(&self) -> u16 {
-        ((self.a as u16) << 8) | (self.f as u16)
+    fn get_16_bit_register(first_register : &u8, second_register : &u8) -> u16 {
+        ((*first_register as u16) << 8) | (*second_register as u16)
     }
     fn set_16_bit_register(first_register : &mut u8, second_register : &mut u8, val : u16) {
         *first_register = ((val & 0xFF00) >> 8) as u8;
