@@ -10,12 +10,11 @@ struct Registers {
 }
 
 impl Registers {
-    //todo : add 16 bit get/set functions rather than one for each combination
-    fn get_af(&self) -> u16 {
+    fn get_16_bit_register(&self) -> u16 {
         ((self.a as u16) << 8) | (self.f as u16)
     }
-    fn set_af(&mut self, val : u16) {
-        self.a = ((val & 0xFF00) >> 8) as u8;
-        self.f = (val & 0x00FF) as u8;
+    fn set_16_bit_register(first_register : &mut u8, second_register : &mut u8, val : u16) {
+        *first_register = ((val & 0xFF00) >> 8) as u8;
+        *second_register = (val & 0x00FF) as u8;
     }
 }
