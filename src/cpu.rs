@@ -19,14 +19,13 @@ enum Reg16b {
 }
 
 impl Registers {
-    fn combine_bytes(hi : &u8, lo : &u8) -> u16 {
+    fn combine_bytes(hi: &u8, lo: &u8) -> u16 {
         ((*hi as u16) << 8) | (*lo as u16)
     }
-    fn split_bytes(hi : &mut u8, lo : &mut u8, val : u16) {
+    fn split_bytes(hi: &mut u8, lo: &mut u8, val: u16) {
         *hi = ((val & 0xFF00) >> 8) as u8;
         *lo = (val & 0x00FF) as u8;
     }
-
 
     fn get_16(&self, register: Reg16b) -> u16 {
         match register {
@@ -36,5 +35,4 @@ impl Registers {
             Reg16b::HL => Self::combine_bytes(&self.h, &self.l),
         }
     }
-
 }
