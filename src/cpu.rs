@@ -1,5 +1,8 @@
 pub mod registers;
+pub mod instructions;
+
 use registers::Registers;
+use instructions::AddressingMode;
 
 struct CPU {
     registers: Registers,

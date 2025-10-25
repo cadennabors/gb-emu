@@ -12,7 +12,18 @@ pub struct Registers {
     l: u8,
 }
 
-enum Reg16b {
+pub enum Reg8b {
+    A,
+    B,
+    C,
+    D,
+    E,
+    F,
+    H,
+    L,
+}
+
+pub enum Reg16b {
     AF,
     BC,
     DE,
